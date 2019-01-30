@@ -5,7 +5,7 @@
     repo: "{{ liquidprompt_repo_url }}"
     dest: "{{ liquidprompt_dest }}"
     force: true
-    version: "{{ liquidprompt_version }}"
+    version: "v_{{ liquidprompt_version }}"
 
 - name: Ensure {{ liquidpromptrc_path }} exists
   tags: liquidprompt
