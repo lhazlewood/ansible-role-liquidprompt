@@ -1,0 +1,17 @@
+---
+- name: Ensure liquidprompt is installed
+  tags: liquidprompt
+  git:
+    repo: "{{ liquidprompt_repo_url }}"
+    dest: "{{ liquidprompt_dest }}"
+    force: true
+    version: "{{ liquidprompt_version }}"
+
+- name: Ensure {{ liquidpromptrc_path }} exists
+  tags: liquidprompt
+  template:
+    src: liquidpromptrc.j2
+    dest: "{{ liquidpromptrc_path }}"
+    owner: "{{ liquidpromptrc_owner }}"
+    group: "{{ liquidpromptrc_group }}"
+    mode: 0400 # shouldn't be editable because this role should be used instead

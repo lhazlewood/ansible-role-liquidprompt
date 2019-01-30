@@ -1,0 +1,44 @@
+---
+liquidprompt_repo_url: https://github.com/nojhan/liquidprompt.git
+liquidprompt_version: '1.11'
+liquidprompt_dest: "{{ ansible_env.HOME }}/.liquidprompt"
+liquidprompt_source_path: "{{ liquidprompt_dest }}/liquidprompt"
+liquidpromptrc_path: "{{ ansible_env.HOME }}/.liquidpromptrc"
+liquidpromptrc_owner: "{{ ansible_real_user_id }}"
+liquidpromptrc_group: "{{ ansible_real_group_id }}"
+
+liquidprompt_sourced_files: []
+liquidprompt_ps1_file: ''
+liquidprompt_battery_threshold: 75
+liquidprompt_load_threshold: 60
+liquidprompt_temp_threshold: 60
+liquidprompt_path_length: 35
+liquidprompt_path_keep: 2
+liquidprompt_hostname_always: false
+liquidprompt_enable_fqdn: false
+liquidprompt_user_always: true
+liquidprompt_percents_always: true
+liquidprompt_enable_perm: true
+liquidprompt_enable_shorten_path: true
+liquidprompt_enable_proxy: true
+liquidprompt_enable_jobs: true
+liquidprompt_enable_load: true
+liquidprompt_enable_batt: true
+liquidprompt_enable_sudo: false
+liquidprompt_enable_vcs_root: false
+liquidprompt_enable_git: true
+liquidprompt_enable_svn: true
+liquidprompt_enable_hg: true
+liquidprompt_enable_fossil: true
+liquidprompt_enable_bzr: true
+liquidprompt_enable_time: false
+liquidprompt_enable_runtime: false
+liquidprompt_runtime_threshold: 2
+liquidprompt_enable_virtualenv: true
+liquidprompt_enable_scls: true
+liquidprompt_enable_temp: true
+liquidprompt_time_analog: false
+liquidprompt_enable_title: false
+liquidprompt_enable_screen_title: false
+liquidprompt_enable_ssh_colors: false
+liquidprompt_disabled_vcs_path: []

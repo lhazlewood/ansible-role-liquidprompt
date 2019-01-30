@@ -1,0 +1,22 @@
+---
+language: python
+sudo: required
+install:
+  - pip install ansible
+  - ansible --version
+  - "{ echo -e '[defaults]'; echo 'roles_path=..:../roles:./roles'; } >> ansible.cfg"
+  - sudo mkdir -p /etc/ansible
+  - sudo touch /etc/ansible/hosts
+  - "echo -e '[local]\nlocalhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts >/dev/null"
+script:
+  - ansible-playbook tests/test.yml --syntax-check
+  - ansible-playbook tests/test.yml
+  - ls -al "$HOME"
+  # test idempotence:
+  - idempotence=$(mktemp)
+  - "ansible-playbook tests/test.yml | tee -a ${idempotence}"
+  - >
+    tail ${idempotence}
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
